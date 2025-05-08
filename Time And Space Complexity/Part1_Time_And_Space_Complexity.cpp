@@ -163,3 +163,32 @@ int main(){
 // logn*n/2 -> nlogn -> O(nlogn) 
 
 // i+=i == i*=2 -> O(logn)
+
+
+
+
+
+#include<iostream>
+using namespace std;
+int main(){
+    cout<<"Time And Space Complexity.";
+}
+
+// // T.C. is -: Imp -: 
+
+// i++ -> O(n)
+// i+=2 -> O(n/2)
+// i+=3 -> O(n/3)
+
+// i*=k -> O(logn) base k 
+// i*=2 > O(logn) base 2
+
+// i=0 to n and j=0 to i (triangle) j<i -> O(n)
+
+// logn*n/2 -> nlogn -> O(nlogn) 
+
+// i+=i == i*=2 -> O(logn)
+
+
+// S.C. -: 
+// when you take an extra space then S.C. = O(n), O(n+m), O(n*m)... etc. 
