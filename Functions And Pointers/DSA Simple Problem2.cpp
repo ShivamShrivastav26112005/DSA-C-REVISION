@@ -122,3 +122,45 @@ int main(){
 
 
 
+
+
+
+
+// Q-> Swap two no.s. with using function. 
+// with and without using third vari. 
+
+#include<iostream>
+using namespace std;
+void swapping(int a, int b){
+    // int temp=a;
+    // a=b;
+    // b=temp;
+
+    // OR -: 
+
+    a=a+b;
+    b=a-b;
+    a=a-b; 
+}
+int main(){
+    int a=4;
+    int b=6;
+    cout<<a<<" "<<b<<endl;
+
+    swapping(a,b);
+    
+    cout<<a<<" "<<b<<endl;
+
+}
+
+//          ****** Not swapped -: ****** 
+// ***** becoz this is pass by value not reference(only pass values not address) *****
+// ******** if you want, then send their addresses using (Pointers or References) ********
+// 4 6
+// 4 6
+
+
+// -> Go to Pointers file, for further understanding -: 
+
+
+// Done -: 11-05-25 
