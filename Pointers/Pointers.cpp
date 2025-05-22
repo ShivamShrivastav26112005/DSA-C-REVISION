@@ -116,29 +116,3 @@ int main(){
 
 
 
-
-
-
- // ****** Dereference operator -> (*) ******  
-
-
-// Pointers example -:
-// integer ka address integer pointer me store hoga, float ka float me and so on  
-
-#include<iostream>
-using namespace std;
-int main(){
-    int x=5;
-    int *p=&x;
-    cout<<x<<endl; // 5
-    cout<<&x<<endl; // 0x61ff08
-    cout<<p<<endl; // 0x61ff08
-
-    cout<<endl;
-
-    float f=3.14;
-    cout<<&f<<endl; // 0x61ff00
-    float *ptr=&f; 
-    cout<<ptr; // 0x61ff00
-}
-
