@@ -104,3 +104,34 @@ int main(){
 
 
 
+
+
+
+
+
+// Q.3 -: find the factorial of the odd no.s only .
+
+#include<iostream>
+using namespace std;
+int fact(int n){
+    int f=1;
+    for(int i=2; i<=n; i++){
+        if(i%2!=0){
+            f*=i;
+        }
+    }
+    return f;
+}
+int main(){
+    int n;
+    cout<<"Enter the number n : ";
+    cin>>n;
+    cout<<fact(n);
+}
+
+
+// Enter the number n : 7 -> {1,3,5,7} -> 105
+// 105
+
+
+// Array Problems Done. 
