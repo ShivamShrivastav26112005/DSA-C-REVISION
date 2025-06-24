@@ -65,8 +65,6 @@ int main(){
 
 
 
-
-
 // 2-> vector input without given size  
 
 #include<iostream>
@@ -87,7 +85,8 @@ int main(){
         cout<<v[i]<<" ";
     }
 }
-this code gives an error -: 
+// this code gives an error -: 
+
 
 
 
@@ -119,6 +118,79 @@ int main(){
 
 // use of i<v.size(). 
 // this code does not gives an error, also not display anything only run/execute.
+
+
+
+
+
+
+
+
+
+// // 2-> vector input without given size
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+
+    // size of the vector is not given 
+    vector<int>v; 
+
+    // input the vector 
+    for(int i=0; i<7; i++){
+        // use extra variable to take an vector input 
+        int x;
+        cin>>x;
+        v.push_back(x);
+    }
+
+    // output the vector 
+    for(int i=0; i<7; i++){
+        cout<<v[i]<<" ";
+    }
+}
+
+// 1 2 3 6 5 4 8 9 -> take input as you can either 7 or 7+
+// 1 2 3 6 5 4 8 -> output -> i<7 menas only 7 ele. is displayed 
+
+
+
+
+
+
+
+    
+
+// // 2-> vector input without given size, take no. of the ele.s by the user input 
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+
+    // size of the vector is not given 
+    vector<int>v; 
+
+    int n;
+    cout<<"Enter the number n : ";
+    cin>>n;
+
+    // input the vector 
+    for(int i=0; i<n; i++){
+        // use extra variable to take an vector input 
+        int x;
+        cin>>x;
+        v.push_back(x);
+    }
+
+    // output the vector 
+    for(int i=0; i<n; i++){
+        cout<<v[i]<<" ";
+    }
+}
+
+// Enter the number n : 6
+// 1 2 3 4 5 6 7 -> i am taking 7 ele.s 
+// 1 2 3 4 5 6 -> but only 6 ele. is printed becoz no. of ele.s is 6 
 
 
 
