@@ -1,7 +1,8 @@
 // You are given two arrays, like:
 // a[] = {1, 2, 4, 5, 6}
 // b[] = {2, 3, 5, 7}
-// Union – Add all elements from both arrays without repeating
+
+// 1-: Union – Add all elements from both arrays without repeating
 // Just like combining two friend groups but no name should repeat.
 // Output: 1 2 3 4 5 6 7
 
@@ -20,6 +21,13 @@ void findUnion(int a[], int b[], int n, int m){
     for(int x : s) cout << x << " ";
     cout << endl;
 }
+
+// 2. Intersection – Find the elements that are common in both arrays
+// Like common friends between both groups.
+// Output: 2 5
+
+// Use set again to check if a number in array b is also in a.
+
 
 void findIntersection(int a[], int b[], int n, int m) {
     set<int>s(a, a + n);
@@ -41,3 +49,6 @@ int main() {
     findUnion(a, b, n, m);
     findIntersection(a, b, n, m);
 }
+
+
+
