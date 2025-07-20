@@ -70,3 +70,95 @@ Selection Sort: Select minimum every time – O(n²)
 Insertion Sort: Insert element at correct place – O(n²)
 Merge Sort: Divide and merge – O(n log n)
 Quick Sort: Pick pivot and sort around it – O(n log n) average
+
+
+
+
+// Code in C++ -: 
+
+✅ 1. Linear Search
+int linearSearch(int arr[], int n, int target) {
+    for (int i = 0; i < n; i++)
+        if (arr[i] == target) return i;
+    return -1;
+}
+
+
+
+✅ 2. Binary Search (sorted array)
+int binarySearch(int arr[], int n, int target) {
+    int low = 0, high = n - 1;
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        if (arr[mid] == target) return mid;
+        else if (arr[mid] < target) low = mid + 1;
+        else high = mid - 1;
+    }
+    return -1;
+}
+
+
+
+✅ 3. Kadane’s Algorithm
+int maxSubarraySum(int arr[], int n) {
+    int maxSum = arr[0], currSum = arr[0];
+    for (int i = 1; i < n; i++) {
+        currSum = max(arr[i], currSum + arr[i]);
+        maxSum = max(maxSum, currSum);
+    }
+    return maxSum;
+}
+
+
+
+✅ 4. Two Pointer Technique (Check if pair sum exists)
+bool hasPairWithSum(int arr[], int n, int target) {
+    int left = 0, right = n - 1;
+    while (left < right) {
+        int sum = arr[left] + arr[right];
+        if (sum == target) return true;
+        else if (sum < target) left++;
+        else right--;
+    }
+    return false;
+}
+
+
+
+✅ 5. Sliding Window Technique (max sum subarray of size k)
+int maxSumWindow(int arr[], int n, int k) {
+    int sum = 0;
+    for (int i = 0; i < k; i++) sum += arr[i];
+    int maxSum = sum;
+    for (int i = k; i < n; i++) {
+        sum += arr[i] - arr[i - k];
+        maxSum = max(maxSum, sum);
+    }
+    return maxSum;
+}
+
+
+
+✅ 6. Prefix Sum
+void prefixSum(int arr[], int n, int prefix[]) {
+    prefix[0] = arr[0];
+    for (int i = 1; i < n; i++)
+        prefix[i] = prefix[i - 1] + arr[i];
+}
+// range sum from l to r
+int rangeSum(int prefix[], int l, int r) {
+    if (l == 0) return prefix[r];
+    return prefix[r] - prefix[l - 1];
+}
+
+
+
+✅ 7. Dutch National Flag Algorithm
+void sortColors(int arr[], int n) {
+    int low = 0, mid = 0, high = n - 1;
+    while (mid <= high) {
+        if (arr[mid] == 0) swap(arr[low++], arr[mid++]);
+        else if (arr[mid] == 1) mid++;
+        else swap(arr[mid], arr[high--]);
+    }
+}
