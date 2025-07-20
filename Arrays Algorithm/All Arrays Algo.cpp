@@ -162,3 +162,178 @@ void sortColors(int arr[], int n) {
         else swap(arr[mid], arr[high--]);
     }
 }
+
+
+
+✅ 8. Moore’s Voting Algorithm
+int majorityElement(int arr[], int n) {
+    int count = 0, candidate = -1;
+    for (int i = 0; i < n; i++) {
+        if (count == 0) candidate = arr[i];
+        count += (arr[i] == candidate) ? 1 : -1;
+    }
+    return candidate;
+}
+
+
+✅ 9. Merge Sort (for inversion count)
+int merge(int arr[], int temp[], int left, int mid, int right) {
+    int i = left, j = mid, k = left, inv_count = 0;
+    while (i <= mid - 1 && j <= right) {
+        if (arr[i] <= arr[j]) temp[k++] = arr[i++];
+        else {
+            temp[k++] = arr[j++];
+            inv_count += (mid - i);
+        }
+    }
+    while (i <= mid - 1) temp[k++] = arr[i++];
+    while (j <= right) temp[k++] = arr[j++];
+    for (i = left; i <= right; i++) arr[i] = temp[i];
+    return inv_count;
+}
+int mergeSort(int arr[], int temp[], int left, int right) {
+    int mid, inv_count = 0;
+    if (right > left) {
+        mid = (left + right) / 2;
+        inv_count += mergeSort(arr, temp, left, mid);
+        inv_count += mergeSort(arr, temp, mid + 1, right);
+        inv_count += merge(arr, temp, left, mid + 1, right);
+    }
+    return inv_count;
+}
+
+
+
+✅ 10. Quickselect Algorithm
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high], i = low;
+    for (int j = low; j < high; j++) {
+        if (arr[j] <= pivot) swap(arr[i++], arr[j]);
+    }
+    swap(arr[i], arr[high]);
+    return i;
+}
+
+int quickSelect(int arr[], int low, int high, int k) {
+    if (low <= high) {
+        int pi = partition(arr, low, high);
+        if (pi == k) return arr[pi];
+        else if (pi > k) return quickSelect(arr, low, pi - 1, k);
+        else return quickSelect(arr, pi + 1, high, k);
+    }
+    return -1;
+}
+
+
+
+✅ 11. XOR Algorithm (Single non-repeating element)
+int singleElement(int arr[], int n) {
+    int res = 0;
+    for (int i = 0; i < n; i++)
+        res ^= arr[i];
+    return res;
+}
+
+
+
+✅ 12. Merge Intervals
+vector<vector<int>> mergeIntervals(vector<vector<int>>& intervals) {
+    sort(intervals.begin(), intervals.end());
+    vector<vector<int>> res;
+    res.push_back(intervals[0]);
+    for (int i = 1; i < intervals.size(); i++) {
+        if (res.back()[1] >= intervals[i][0])
+            res.back()[1] = max(res.back()[1], intervals[i][1]);
+        else
+            res.push_back(intervals[i]);
+    }
+    return res;
+}
+
+
+
+✅ 13. Frequency Count using Hashing
+void countFrequency(int arr[], int n) {
+    unordered_map<int, int> freq;
+    for (int i = 0; i < n; i++)
+        freq[arr[i]]++;
+    for (auto it : freq)
+        cout << it.first << " -> " << it.second << endl;
+}
+
+
+
+✅ 14. Sorting Algorithms (short codes)
+Bubble Sort
+void bubbleSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++)
+        for (int j = 0; j < n - i - 1; j++)
+            if (arr[j] > arr[j + 1]) swap(arr[j], arr[j + 1]);
+}
+
+
+
+Selection Sort
+void selectionSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int minIdx = i;
+        for (int j = i + 1; j < n; j++)
+            if (arr[j] < arr[minIdx]) minIdx = j;
+        swap(arr[i], arr[minIdx]);
+    }
+}
+
+
+
+Insertion Sort
+void insertionSort(int arr[], int n) {
+    for (int i = 1; i < n; i++) {
+        int key = arr[i], j = i - 1;
+        while (j >= 0 && arr[j] > key)
+            arr[j + 1] = arr[j--];
+        arr[j + 1] = key;
+    }
+}
+
+
+
+Merge Sort
+void merge(int arr[], int l, int m, int r) {
+    int n1 = m - l + 1, n2 = r - m;
+    int L[n1], R[n2];
+    for (int i = 0; i < n1; i++) L[i] = arr[l + i];
+    for (int j = 0; j < n2; j++) R[j] = arr[m + 1 + j];
+    int i = 0, j = 0, k = l;
+    while (i < n1 && j < n2)
+        arr[k++] = (L[i] <= R[j]) ? L[i++] : R[j++];
+    while (i < n1) arr[k++] = L[i++];
+    while (j < n2) arr[k++] = R[j++];
+}
+void mergeSort(int arr[], int l, int r) {
+    if (l < r) {
+        int m = (l + r) / 2;
+        mergeSort(arr, l, m);
+        mergeSort(arr, m + 1, r);
+        merge(arr, l, m, r);
+    }
+}
+
+
+
+Quick Sort
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high], i = low;
+    for (int j = low; j < high; j++)
+        if (arr[j] < pivot) swap(arr[i++], arr[j]);
+    swap(arr[i], arr[high]);
+    return i;
+}
+void quickSort(int arr[], int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+
