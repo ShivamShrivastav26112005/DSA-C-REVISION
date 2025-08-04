@@ -245,3 +245,59 @@ int main(){
 // 50 40 30 20 10 5000 
 
 
+
+
+
+
+// Push ele. at any idx of the stack by using function -:
+
+#include<iostream>
+#include<stack>
+using namespace std;
+
+void print(stack<int>st){
+    stack<int>temp;
+    while(st.size()>0){
+        cout<<st.top()<<" ";
+        temp.push(st.top());
+        st.pop();
+    }
+    cout<<endl;
+}
+
+// Stack is pass by reference (&) to a function -:
+void pushatidx(stack<int>& st, int idx, int val){
+    stack<int>helper;
+    while(st.size()>idx){
+        helper.push(st.top());
+        st.pop();
+    }
+
+    st.push(val);
+
+    while(helper.size()>0){
+        st.push(helper.top());
+        helper.pop();
+    }
+}
+
+int main(){
+    stack<int>st;
+    st.push(10);
+    st.push(20);
+    st.push(30);
+    st.push(40);
+    st.push(50);
+
+    print(st);
+    pushatidx(st,0,5000);
+    print(st);
+
+}
+
+// 50 40 30 20 10 
+// 50 40 30 20 10 5000
+
+
+
+
