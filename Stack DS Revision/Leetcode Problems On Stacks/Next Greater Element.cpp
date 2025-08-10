@@ -94,3 +94,51 @@ int main(){
 // 3 1 2 7 4 6 2 3 
 // 7 2 7 -1 6 -1 3 -1 
 
+
+
+
+
+// Next greater ele. -> travel backward 
+
+#include<iostream>
+#include<stack>
+using namespace std;
+int main(){
+    int arr[]={3,4,7,2,5,1};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    for(int i=0; i<n; i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+
+    // by using stack -: 
+    int ans[n];
+    ans[n-1]=-1;
+
+    stack<int>st;
+    st.push(arr[n-1]);
+
+    for(int i=n-2; i>=0; i--){
+        // pop -: 
+        while(st.size()>0 && st.top()<=arr[i]){
+            st.pop();
+        }
+
+        // ans -:
+        if(st.size()==0) ans[i]=-1;
+        else ans[i]=st.top();
+
+        // push -: 
+        st.push(arr[i]);
+    }
+    for(int i=0; i<n; i++){
+        cout<<ans[i]<<" ";
+    }
+}
+
+
+// 3 4 7 2 5 1 
+// 4 7 -1 5 -1 -1
+
+
+
