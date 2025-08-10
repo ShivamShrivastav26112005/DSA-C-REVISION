@@ -50,3 +50,50 @@ int main(){
 // 3 4 7 2 5 1 
 // -1 -1 -1 7 7 5 
 
+
+
+
+
+
+// // Q-6 -: Previous Smallest element.
+
+
+#include<iostream>
+#include<stack>
+using namespace std;
+
+int main(){
+    int arr[]={3,4,7,2,5,1};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    for(int i=0; i<n; i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+
+    // make a answer array ans of size n 
+    int ans[n];
+    ans[0]=-1;
+
+    stack<int>st;
+    st.push(arr[0]);
+
+    for(int i=1; i<=n-1; i++){
+        // pop -:
+        while(st.size()>0 && st.top()>=arr[i]){
+            st.pop();
+        }
+        // ans -: 
+        if(st.size()==0) ans[i]=-1; // base case 
+        else ans[i]=st.top(); // main case 
+        // push -: 
+        st.push(arr[i]);
+    }
+    for(int i=0; i<n; i++){
+        cout<<ans[i]<<" ";
+    } 
+}
+
+// 3 4 7 2 5 1 
+// -1 3 4 -1 2 -1
+
+
