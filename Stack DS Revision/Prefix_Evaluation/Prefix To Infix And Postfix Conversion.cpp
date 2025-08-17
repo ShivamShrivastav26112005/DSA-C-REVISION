@@ -1,4 +1,4 @@
-// Prefix To Infix Conversion.  
+// Prefix To Infix Conversion -: 
 
 
 #include<iostream>
@@ -44,9 +44,10 @@ int main(){
 
 
 
-    
-// Practice -: 
-// Prefix To Postfix Conversion.  
+
+
+
+// Prefix To Postfix Conversion -: 
 
 #include<iostream>
 #include<stack>
